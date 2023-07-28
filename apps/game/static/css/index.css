@@ -1,0 +1,46 @@
+.title {
+  text-align: center;
+  font-family: "Comic Sans MS";
+}
+
+.section {
+  background-color: #f2f67c;
+}
+
+.hangdude-col {
+  background-color: #f599f5;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.termsearch-col {
+    background-color: #f599f5;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+p {
+  font-family: "Comic Sans MS";
+}
+
+.button {
+  font-family: "Comic Sans MS";
+}
+
+.hangdude-le {
+  font-family: "Comic Sans MS";
+}
+
+.hangdude-time {
+  font-family: "Comic Sans MS";
+}
+
+.termsearch-le {
+    font-family: "Comic Sans MS";
+}
+
+.termsearch-time {
+    font-family: "Comic Sans MS";
+}

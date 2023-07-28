@@ -1,0 +1,93 @@
+.title {
+    text-align: center;
+    font-family: "Comic Sans MS";
+    font-size: 55px;
+    color: black;
+}
+
+.subtitle {
+    text-align: center;
+    font-family: "Comic Sans MS";
+    font-size: 21px;
+    padding: 20px;
+    color: black;
+}
+
+.earn {
+    font-family: "Comic Sans MS";
+    font-size: 17px;
+    color: black;
+    padding-top: 17px;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+}
+
+.section {
+    background-color: rgb(127, 154, 242);
+}
+
+.boop {
+    display: flex;
+    justify-content: center;
+}
+
+.lose-img {
+    display: flex;
+    justify-content: center;
+}
+
+.win-img {
+    display: flex;
+    justify-content: center;
+}
+
+.lose-txt {
+    font-family: "Comic Sans MS";
+    font-size: 24px;
+    color: black;
+    text-align: center;
+}
+
+p {
+    font-family: "Comic Sans MS";
+    font-size: 21px;
+    color: black;
+    text-align: center;
+}
+
+.button {
+    font-family: "Comic Sans MS";
+}
+
+.guess-button {
+    font-family: "Comic Sans MS";
+    background-color: pink;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.hidden {
+    padding: 50px;
+    font-family: "Comic Sans MS";
+    font-size: 50px;
+}
+
+.win-txt {
+    font-family: "Comic Sans MS";
+    font-size: 24px;
+    color: black;
+    text-align: center;
+}
+
+.earned-pts {
+    padding: 23px;
+}
+
+.try-again {
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+}

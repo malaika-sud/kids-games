@@ -1,0 +1,131 @@
+[[extend 'layout.html']]
+
+<style>
+  [v-cloak] {
+    display: none;
+  }
+</style>
+
+<div class="section" id="vue-hangdude" v-cloak>
+  <div class="column is-centered">
+    <div class="title">Hangdude</div>
+    <div class="subtitle">
+      It's a brand new day. The waves look gnarly and Hangdude is excited to
+      hang ten with his friends! Guess this 5 letter word so he can go surf.
+    </div>
+
+    <div class="earn">Potential Points to Earn: {{ points }}</div>
+
+    <h1>&nbsp;</h1>
+    <h1>&nbsp;</h1>
+    <!-- just for formatting/aesthetic purposes-->
+
+    <div v-if="gameOver">
+      <div class="lose-img">
+        <img src="images/shark6.png" alt="" width="400" />
+      </div>
+
+      <div class="lose-txt">
+        <span class="icon"><i class="fa fa-fw fa-frown-o"></i></span>
+        Oh no! Hangdude can't hang ten with his friends today. The word was "{{
+        word }}"
+        <span class="icon"><i class="fa fa-fw fa-frown-o"></i></span>
+      </div>
+
+      <h1>&nbsp;</h1>
+      <!-- just for formatting/aesthetic purposes-->
+
+      <p>Try again tomorrow?</p>
+
+      <div class="try-again">
+        <a class="button is-success" href="[[=URL('hangdude')]]">
+          <span>Yes</span>
+        </a>
+
+        <a class="button is-danger" href="[[=URL('index')]]">
+          <span>No</span>
+        </a>
+      </div>
+    </div>
+
+    <div v-else-if="youWon">
+      <div class="win-img">
+        <img src="images/shark-happy.png" alt="" width="500" />
+      </div>
+
+      <div class="win-txt">
+        <span class="icon"><i class="fa fa-fw fa-smile-o"></i></span>
+        Yay! The word was "{{ word }}" and you guessed it. Hangdude is still
+        able to go surfing with his friends today, good job!
+        <span class="icon"><i class="fa fa-fw fa-smile-o"></i></span>
+      </div>
+
+      <p class="earned-pts">You earned: {{ points }} points!</p>
+
+      <p>Try again tomorrow?</p>
+
+      <div class="try-again">
+        <a class="button is-success" href="[[=URL('hangdude')]]">
+          <span>Yes</span>
+        </a>
+
+        <a class="button is-danger" href="[[=URL('index')]]">
+          <span>No</span>
+        </a>
+      </div>
+    </div>
+
+    <div v-else>
+      <div class="images">
+        <div v-if="attempts == 6">
+          <img src="images/hangshark.png" alt="" width="400" />
+        </div>
+
+        <div v-else-if="attempts == 5">
+          <img src="images/shark1.png" alt="" width="400" />
+        </div>
+
+        <div v-else-if="attempts == 4">
+          <img src="images/shark2.png" alt="" width="400" />
+        </div>
+
+        <div v-else-if="attempts == 3">
+          <img src="images/shark3.png" alt="" width="400" />
+        </div>
+
+        <div v-else-if="attempts == 2">
+          <img src="images/shark4.png" alt="" width="400" />
+        </div>
+
+        <div v-else-if="attempts == 1">
+          <img src="images/shark5.png" alt="" width="400" />
+        </div>
+      </div>
+
+      <p class="hidden">{{ hiddenWord }}</p>
+      <p>Attempts Left: {{ attempts }}</p>
+      <p>
+        Enter a Single Letter: &nbsp; &nbsp;<input
+          v-model="guess"
+          style="width: 40px"
+        />
+        &nbsp; &nbsp; &nbsp;<button
+          class="guess-button"
+          v-on:click="makeGuess()"
+        >
+          Click to Guess
+        </button>
+      </p>
+      <p>Incorrect Letters: {{ guessedList }}</p>
+    </div>
+  </div>
+  <a class="button is-success" href="[[=URL('index')]]">Back</a>
+</div>
+
+[[block page_scripts]]
+<!-- Loads the hangdude-specific js for Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+<script src="js/hangdude.js"></script>
+<link rel="stylesheet" type="text/css" href="css/hangdude.css" />
+[[end]]

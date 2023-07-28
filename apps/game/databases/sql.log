@@ -1,0 +1,324 @@
+timestamp: 2023-05-31T17:59:44.098023
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "username" CHAR(512) UNIQUE,
+    "email" CHAR(512) UNIQUE,
+    "password" CHAR(512),
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "sso_id" CHAR(512),
+    "action_token" CHAR(512),
+    "last_password_change" TIMESTAMP,
+    "past_passwords_hash" TEXT
+);
+success!
+timestamp: 2023-05-31T17:59:44.164761
+CREATE TABLE "auth_user_tag_groups"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "tagpath" CHAR(512),
+    "record_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  
+);
+success!
+timestamp: 2023-05-31T17:59:44.167534
+CREATE TABLE "termdle_leaderboard"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "users_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "users_name" CHAR(512),
+    "points" INTEGER,
+    "time" TIMESTAMP
+);
+success!
+timestamp: 2023-05-31T17:59:44.169182
+CREATE TABLE "hangdude_leaderboard"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "users_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "users_name" CHAR(512),
+    "points" INTEGER,
+    "time" TIMESTAMP
+);
+success!
+timestamp: 2023-05-31T17:59:44.170807
+CREATE TABLE "history"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "users_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "termdle_played" INTEGER,
+    "hangdude_played" INTEGER
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+DROP TABLE "termdle_leaderboard";
+success!
+DROP TABLE "hangdude_leaderboard";
+success!
+DROP TABLE "history";
+success!
+timestamp: 2023-05-31T18:41:46.257537
+CREATE TABLE "termdle_leaderboard"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "users_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "users_name" CHAR(512),
+    "points" INTEGER,
+    "time" TIMESTAMP
+);
+success!
+timestamp: 2023-05-31T18:41:46.260834
+CREATE TABLE "hangdude_leaderboard"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "users_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "users_name" CHAR(512),
+    "points" CHAR(512),
+    "time" TIMESTAMP
+);
+success!
+timestamp: 2023-05-31T18:41:46.263285
+CREATE TABLE "history"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "users_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "termdle_played" INTEGER,
+    "hangdude_played" INTEGER
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2023-06-08T19:53:52.515895
+CREATE TABLE "termsearch_leaderboard"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "users_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "users_name" CHAR(512),
+    "points" INTEGER,
+    "time" TIMESTAMP
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2023-06-08T19:56:22.494664
+ALTER TABLE "history" ADD "termsearch_played" INTEGER;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+DROP TABLE "history";
+success!
+success!
+success!
+success!
+timestamp: 2023-06-08T20:06:30.758110
+CREATE TABLE "history"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "users_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "termdle_played" INTEGER,
+    "hangdude_played" INTEGER,
+    "termsearch_played" INTEGER
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2023-06-08T23:34:07.108431
+CREATE TABLE "countdown_leaderboard"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "users_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "users_name" CHAR(512),
+    "points" INTEGER,
+    "time" TIMESTAMP
+);
+success!
+timestamp: 2023-06-08T23:34:07.111152
+ALTER TABLE "history" ADD "countdown_played" INTEGER;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+DROP TABLE "history";
+success!
+success!
+success!
+success!
+success!
+timestamp: 2023-06-09T13:01:32.064299
+CREATE TABLE "history"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "users_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "termdle_played" INTEGER,
+    "hangdude_played" INTEGER,
+    "termsearch_played" INTEGER,
+    "countdown_played" INTEGER
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

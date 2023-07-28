@@ -1,0 +1,76 @@
+[[extend 'layout.html']]
+<style>
+  [v-cloak] {
+    display: none;
+  }
+</style>
+<div class="section" id="vue-termdle" v-cloak>
+  <div class="title has-text-centered">Termdle</div>
+  <div class="subtitle has-text-centered">
+    Guess a five letter word.<br />
+    The block will show up as green if the letter is in the right position.<br />
+    The block will show up as yellow if the letter is in the word, but not the
+    right position. <br />The block will stay white if the letter is not in the
+    word.
+  </div>
+  <div class="images">
+    <img src="images/turtle.png" alt="" width="100" />
+  </div>
+  <div class="has-text-centered">Points Available: {{points}}</div>
+  <div class="columns is-centered">
+    <div class="column is-4">
+      <table class="table is-bordered is-fullwidth">
+        <tbody>
+          <tr v-for="guess in guessTable">
+            <td
+              v-for="letter in guess"
+              v-bind:class="{'has-background-warning' : letter.in === 1, 'has-background-success': letter.in === 2}"
+              class="is-size-3 has-text-centered"
+            >
+              {{letter.letter}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <input
+        v-if="progress === true"
+        class="input mb-3"
+        type="text"
+        v-model="guess.body"
+        placeholder="word"
+      />
+      <button
+        v-if="progress === true"
+        button
+        v-on:click="handleSubmit()"
+        class="button is-link"
+      >
+        Submit
+      </button>
+      <div v-if="progress === false">
+        <h1 v-if="progress === false && win === false">
+          You word was: {{wordToSolve}}
+        </h1>
+        <h1 v-if="progress === false && win === true">
+          Congrats! You received {{points}} points!
+        </h1>
+        <p>Would you like to try again?</p>
+        <div>
+          <a class="button is-success is-centered" href="[[=URL('termdle')]]">
+            <span>Yes</span>
+          </a>
+
+          <a class="button is-danger is-centered" href="[[=URL('index')]]">
+            <span>No</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="button is-success" href="[[=URL('index')]]">Back</a>
+</div>
+[[block page_scripts]]
+<script src="js/termdle.js"></script>
+<link rel="stylesheet" type="text/css" href="css/termdle.css" />
+[[end]]

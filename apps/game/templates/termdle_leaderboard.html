@@ -1,0 +1,39 @@
+<!-- page for termdle leaderboard. will only show top 10 of user with the most accumulated points -->
+[[extend 'layout.html']]
+<style>
+  [v-cloak] {
+    display: none;
+  }
+</style>
+<div
+  class="section has-background-danger-light"
+  id="vue-termdle-leaderboard"
+  v-cloak
+>
+  <div class="title is-size-1 has-text-centered">Top 10 Term Learners</div>
+  <div class="columns is-centered is-multiline is-mobile">
+    <table class="table has-background-info-light mb-3">
+      <thead>
+        <tr>
+          <th class="is-size-3">#</th>
+          <th class="is-size-3">Username</th>
+          <th class="is-size-3">Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(r, index) in result">
+          <td class="is-size-4">{{index+1}}</td>
+          <td class="is-size-4">{{r.name}}</td>
+          <td class="is-size-4">{{r.points}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="columns is-centered">
+    <a class="button is-success" href="[[=URL('index')]]">Back</a>
+  </div>
+</div>
+[[block page_scripts]]
+
+<script src="js/termdle_leaderboard.js"></script>
+[[end]]

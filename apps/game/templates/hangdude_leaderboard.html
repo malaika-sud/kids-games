@@ -1,0 +1,41 @@
+[[extend 'layout.html']]
+
+<style>
+  [v-cloak] {
+    display: none;
+  }
+</style>
+
+<div
+  class="section has-background-danger-light"
+  id="vue-hangdude-leaderboard"
+  v-cloak
+>
+  <div class="title is-size-1 has-text-centered">Best at Hanging Out</div>
+  <div class="columns is-centered is-multiline is-mobile">
+    <table class="table has-background-info-light mb-3">
+      <thead>
+        <tr>
+          <th class="is-size-3">#</th>
+          <th class="is-size-3">Username</th>
+          <th class="is-size-3">Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(r, index) in result">
+          <!-- going through all top 10 users in the js array -->
+          <td class="is-size-4">{{index+1}}</td>
+          <td class="is-size-4">{{r.name}}</td>
+          <td class="is-size-4">{{r.points}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="columns is-centered">
+    <a class="button is-success" href="[[=URL('index')]]">Back</a>
+  </div>
+
+  [[block page_scripts]]
+  <script src="js/hangdude_leaderboard.js"></script>
+  [[end]]
+</div>

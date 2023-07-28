@@ -1,0 +1,84 @@
+[[extend 'layout.html']]
+
+<style>
+[v-cloak] {
+     display: none;
+}
+</style>
+
+<div class="section" id="vue-termsearch" v-cloak>
+
+    <div class="column is-centered">
+        <div class="title">Termsearch</div>
+
+        <div v-if="points > 0 && !youWon">
+            <p>Words To Find: {{ finalWordList }}</p>
+
+            <div class="searchMap">
+                <div class="createRow" v-for="(createRow, rowInd) in searchMap" v-bind:key="rowInd">
+                    <div v-for="(cell, colInd) in createRow" v-bind:key="colInd" v-bind:class="getCellStyle(rowInd, colInd)" v-on:click="selectCell(rowInd, colInd)">
+                        {{ cell.celly }}
+                    </div>
+                </div>
+            </div>
+    
+            <p>Points Available: {{ points }}</p>
+        </div>
+
+        <div v-if="gameOver">
+            <div class="lose-txt">
+                <span class="icon"><i class="fa fa-fw fa-frown-o"></i></span>
+                Oh no! Termsearch couldn't find the word.
+                <span class="icon"><i class="fa fa-fw fa-frown-o"></i></span>
+            </div>
+          
+            <h1>&nbsp;</h1>
+          
+            <p>Try again?</p>
+          
+            <div class="try-again">
+                <a class="button is-success" href="[[=URL('termsearch')]]">
+                <span>Yes</span>
+                </a>
+        
+                <a class="button is-danger" href="[[=URL('index')]]">
+                <span>No</span>
+                </a>
+            </div>
+        </div>
+
+        <div v-if="youWon">
+            <div class="win-txt">
+                <span class="icon"><i class="fa fa-fw fa-smile-o"></i></span>
+                Yay! Termsearch was able to find all of the words!
+                <span class="icon"><i class="fa fa-fw fa-smile-o"></i></span>
+            </div>
+
+            <p class="earned-pts">You earned: {{ points }} points!</p>
+
+            <p>Try again?</p>
+
+            <div class="try-again">
+            <a class="button is-success" href="[[=URL('termsearch')]]">
+                <span>Yes</span>
+            </a>
+
+            <a class="button is-danger" href="[[=URL('index')]]">
+                <span>No</span>
+            </a>
+            </div>
+        </div>
+
+        <a class="button is-success" href="[[=URL('index')]]">Back</a>
+
+    </div>
+
+</div>
+
+[[block page_scripts]]
+<!-- Loads the termsearch-specific js for Vue (and css file) -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+<script src="js/termsearch.js"></script>
+<link rel="stylesheet" type="text/css" href="css/termsearch.css"/>
+[[end]]
